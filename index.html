@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUDIO ELEMENT -->
+    <audio id="bg-music" src="love-song.mp3" loop></audio>
+
+    <!-- SLIDE 1: PASSCODE -->
+    <div id="screen-passcode" class="screen active">
+        <div class="container-slide1">
+            <div class="heart-frame">
+                <img src="photo1.jpg" alt="Couple">
+            </div>
+            <div class="passcode-box">
+                <div class="lock-icon">🔒</div>
+                <h3>Enter passcode</h3>
+                <div id="passcode-display">____</div>
+                <div class="keypad">
+                    <button onclick="pressNum('1')">1</button>
+                    <button onclick="pressNum('2')">2</button>
+                    <button onclick="pressNum('3')">3</button>
+                    <button onclick="pressNum('4')">4</button>
+                    <button onclick="pressNum('5')">5</button>
+                    <button onclick="pressNum('6')">6</button>
+                    <button onclick="pressNum('7')">7</button>
+                    <button onclick="pressNum('8')">8</button>
+                    <button onclick="pressNum('9')">9</button>
+                    <button onclick="pressNum('*')">*</button>
+                    <button onclick="pressNum('0')">0</button>
+                    <button onclick="pressNum('#')">#</button>
+                </div>
+                <button class="enter-btn" onclick="checkPass()">Enter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WRONG PASSCODE SCREEN -->
+    <div id="screen-wrong" class="screen">
+        <div class="card-center">
+            <h2>wrong passcode :(</h2>
+            <button onclick="goToScreen('screen-passcode')">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: WANNA SEE IT -->
+    <div id="screen-wanna-see" class="screen">
+        <div class="container-slide2">
+            <div class="locket">
+                <img src="photo2.jpg" class="locket-left">
+                <img src="photo3.jpg" class="locket-right">
+            </div>
+            <div class="prompt-box">
+                <h2>I have little surprise for you. Wanna see it ?</h2>
+                <div class="yes-no-group">
+                    <button onclick="goToScreen('screen-gifts')">YES</button>
+                    <button id="btn-no" onmouseover="moveNo()" onclick="moveNo()">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW DARE YOU CLICK NO (IMAGE 4 STYLE) -->
+    <div id="screen-no" class="screen">
+        <div class="card-center blue-theme-bg">
+            <h2>How dare you click NO !</h2>
+            <button onclick="goToScreen('screen-wanna-see')">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: GIFT BOXES SELECTION (USING NEW BLUE/WHITE GIFT BOX IMAGE) -->
+    <div id="screen-gifts" class="screen blue-theme-bg">
+        <h2 class="title-gift">select any gift</h2>
+        <div class="gifts-row">
+            <div class="gift-item" onclick="goToScreen('screen-gift1')">
+                <img src="giftbox.png" class="gift-box-custom" alt="Gift 1">
+                <span>Gift-1</span>
+            </div>
+            <div class="gift-item" onclick="goToScreen('screen-gift2')">
+                <img src="giftbox.png" class="gift-box-custom" alt="Gift 2">
+                <span>Gift-2</span>
+            </div>
+            <div class="gift-item" onclick="goToScreen('screen-gift3')">
+                <img src="giftbox.png" class="gift-box-custom" alt="Gift 3">
+                <span>Gift-3</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT 1: OPEN LETTER -->
+    <div id="screen-gift1" class="screen blue-theme-bg">
+        <button class="back-btn" onclick="goToScreen('screen-gifts')">back</button>
+        <div class="gift1-content">
+            <div class="note-card">
+                <h3>Happy Birthday</h3>
+                <p>Today is a reminder to celebrate love in its purest form the love</p>
+            </div>
+            <div class="polaroid-strip">
+                <img src="polaroid1.jpg"><img src="polaroid2.jpg"><img src="polaroid3.jpg">
+            </div>
+            <div class="envelope-box" onclick="goToScreen('screen-letter-text')">
+                <div class="envelope"></div>
+                <span class="open-label">OPEN THE LETTER</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILED LETTER TEXT -->
+    <div id="screen-letter-text" class="screen blue-theme-bg">
+        <button class="back-btn" onclick="goToScreen('screen-gift1')">back</button>
+        <div class="scroll-letter">
+            <p>Happy birthday to the one and only soul who completes me , the one who made my whole life happy, the one who brought colour to my life , the one who is there for me in my ups and downs, the one who is there with me in my every step, supported me, guided me, understood me more than I know myself, cared me more than my mom, loved me the most in this whole world....</p>
+            <p>Love youu sooo muchh babyy for making my life beautiful and for coming into my life...naaku god ichina biggest gift naa life lo nve bangaaram....</p>
+            <p>Nen naala , chinnipillaala , nen miss ayina naa childhood antha nee valla experience chesaa pandhii, nenu chaala weak ga emotional ga, sensitive ga undii naa gurinchi care theeskokunda andhari kosam annattu undedhaanni, ala unna naaku Ela undaalo nerpaav, naaku nenu strong ga stand theeskodam nerpaav, naaku decisions theeskodame raadhu alantidhi naaku nenu anni choose cheskodam nerpaav, nannu nen love cheyadam nerpaav nannu weak nunchi chaala strong ga maarchaav raa...</p>
+            <p>Nen chaala antey chaala chaala lucky nv naa life lo unandhuku nen ninnu love chesinandhukuu...</p>
+            <p><strong>I LOVE YOU GOLDY 🤍</strong></p>
+        </div>
+    </div>
+
+    <!-- GIFT 2: CALENDAR (JAN 2) -->
+    <div id="screen-gift2" class="screen blue-theme-bg">
+        <button class="back-btn" onclick="goToScreen('screen-gifts')">back</button>
+        <div class="calendar-layout">
+            <div class="calendar-card">
+                <div class="date-display">
+                    <span class="date-num">2</span>
+                    <span class="date-month">Jan</span>
+                </div>
+                <h2>The Day It Became Us</h2>
+            </div>
+            <div class="couple-photos">
+                <img src="couple1.jpg">
+                <img src="couple2.jpg">
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT 3: 20 REASONS MAIN -->
+    <div id="screen-gift3" class="screen blue-theme-bg">
+        <button class="back-btn" onclick="goToScreen('screen-gifts')">back</button>
+        <div class="reasons-cover" onclick="goToScreen('screen-reasons-list')">
+            <img src="reasons-photo.jpg" class="cover-img">
+            <h1>20 REASONS WHY I LOVE YOU</h1>
+            <span class="arrow-icon">></span>
+        </div>
+    </div>
+
+    <!-- GIFT 3: REASONS LIST (20 REASONS) -->
+    <div id="screen-reasons-list" class="screen blue-theme-bg">
+        <button class="back-btn" onclick="goToScreen('screen-gift3')">back</button>
+        <div class="notebook-container">
+            <div class="reasons-list">
+                <ol>
+                    <li>your love...the way you love me...</li>
+                    <li>your caring...the way you care for me like I was your own baby...</li>
+                    <li>your time....the way you give me your time even thought u r busy, even though if it isn't possible, even though it was hard to talk, you always make a way to give me your time..</li>
+                    <li>the way you reports me in every little detail</li>
+                    <li>the way you treat me like ai am precious</li>
+                    <li>the way you respects my decisions</li>
+                    <li>the way you asks me for permission</li>
+                    <li>the way you give me your attention</li>
+                    <li>the way you listens to my bla bla bla</li>
+                    <li>the way you let my inner child live happily with you</li>
+                    <li>the way you praises me even thought I am messy</li>
+                    <li>the way you corrects me through sweet talks and kisses</li>
+                    <li>being patient with me even if I eat your brain a lot</li>
+                    <li>you accept me as how I am</li>
+                    <li>you never judged me or my past</li>
+                    <li>the way that you always being so playful with me</li>
+                    <li>the way how we behave around me</li>
+                    <li>the way how you console me in every situation I face</li>
+                    <li>the way u r being there for me when I don't have no one on my side, the way you made me happy on my low times , the way you never make me feel alone , the way you pampers me and much more...</li>
+                    <li>and lastly I love you because I fell for your love, your beauty, your eyes, your smile, your height, your behaviour, your mesmerizing voice , your actions, your cute expressions , your innocence, your kindness, your cuteness, your words, your hair and what not... I genuinely fell for you because it was " YOU " <br><strong>I LOVE YOU MY LOVE 🤍</strong></li>
+                </ol>
+            </div>
+            <div class="notebook-photo">
+                <img src="reasons-photo.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+  
